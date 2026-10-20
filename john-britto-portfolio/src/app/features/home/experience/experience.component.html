@@ -1,0 +1,45 @@
+<section id="experience" class="section" aria-labelledby="experience-heading">
+  <div class="container">
+    <p class="section-label">Career</p>
+    <h2 id="experience-heading" class="section-title">Work Experience</h2>
+    <p class="section-subtitle">
+      Over 9 years of continuous growth from developer to technical lead,
+      delivering production frontend systems.
+    </p>
+
+    <div class="timeline">
+      @for (exp of data.experiences; track exp.company) {
+        <article class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">{{ exp.role }}</h3>
+                <p class="exp-company">{{ exp.company }}</p>
+              </div>
+              <span class="exp-period">{{ exp.period }}</span>
+            </div>
+            <ul class="exp-highlights" aria-label="Responsibilities and achievements">
+              @for (h of exp.highlights; track h) {
+                <li>{{ h }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="impact-note">
+      <div class="impact-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div>
+        <p class="impact-title">Engineering Impact</p>
+        <p class="impact-text">
+          Led frontend restructuring that the team reports as delivering significant performance improvements
+          and reduced deployment time to minutes. Formal benchmarks pending verification.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

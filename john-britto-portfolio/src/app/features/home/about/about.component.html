@@ -1,0 +1,41 @@
+<section id="about" class="section" aria-labelledby="about-heading">
+  <div class="container about-grid">
+    <div class="about-text">
+      <p class="section-label">About</p>
+      <h2 id="about-heading" class="section-title">Engineering frontend systems that scale</h2>
+      <p class="about-para">
+        I'm a Senior Technical Lead at Saksoft with over 9 years of hands-on experience
+        designing and delivering production Angular applications. My work sits at the intersection
+        of frontend architecture, engineering leadership, and cloud delivery.
+      </p>
+      <p class="about-para">
+        I lead the frontend of a fleet management platform — making architecture decisions,
+        driving performance improvements, reviewing code, mentoring developers, and deploying
+        builds to AWS. I work closely with clients and product stakeholders to translate
+        requirements into reliable, maintainable software.
+      </p>
+      <p class="about-para">
+        I care about code quality, clear module boundaries, and building systems that the
+        next engineer can understand and extend without friction.
+      </p>
+      <div class="about-actions">
+        <a href="#projects" class="btn btn-primary">See My Projects</a>
+        <a
+          href="https://www.linkedin.com/in/a-john-britto-94a626155"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline"
+        >LinkedIn Profile</a>
+      </div>
+    </div>
+
+    <div class="about-stats" aria-label="Career highlights">
+      @for (stat of stats; track stat.label) {
+        <div class="stat-card">
+          <span class="stat-value">{{ stat.value }}</span>
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

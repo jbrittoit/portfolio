@@ -1,0 +1,79 @@
+<section id="projects" class="section" aria-labelledby="projects-heading">
+  <div class="container">
+    <p class="section-label">Case Studies</p>
+    <h2 id="projects-heading" class="section-title">Featured Projects</h2>
+    <p class="section-subtitle">
+      Four engineering case studies from production work — architecture decisions,
+      technical challenges, and outcomes.
+    </p>
+
+    <div class="projects-list">
+      @for (project of data.projects; track project.id; let i = $index) {
+        <article class="project-card" [class.expanded]="expandedId() === project.id">
+          <div class="project-header">
+            <div class="project-meta">
+              <span class="project-number">0{{ i + 1 }}</span>
+              <div>
+                <h3 class="project-title">{{ project.title }}</h3>
+                <p class="project-tagline">{{ project.tagline }}</p>
+              </div>
+            </div>
+            <button
+              class="expand-btn"
+              [attr.aria-expanded]="expandedId() === project.id"
+              [attr.aria-controls]="'project-' + project.id"
+              (click)="toggle(project.id)"
+            >
+              <svg
+                class="expand-icon"
+                [class.rotated]="expandedId() === project.id"
+                width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+              <span class="sr-only">{{ expandedId() === project.id ? 'Collapse' : 'Expand' }} {{ project.title }}</span>
+            </button>
+          </div>
+
+          <div
+            [id]="'project-' + project.id"
+            class="project-body"
+            [class.visible]="expandedId() === project.id"
+          >
+            <div class="project-section">
+              <h4 class="project-section-label">Problem</h4>
+              <p>{{ project.problem }}</p>
+            </div>
+            <div class="project-section">
+              <h4 class="project-section-label">Technical Approach</h4>
+              <p>{{ project.approach }}</p>
+            </div>
+            <div class="project-section">
+              <h4 class="project-section-label">Key Engineering Decisions</h4>
+              <ul class="decision-list">
+                @for (d of project.decisions; track d) {
+                  <li>{{ d }}</li>
+                }
+              </ul>
+            </div>
+            <div class="project-section">
+              <h4 class="project-section-label">Outcome</h4>
+              <p>{{ project.outcome }}</p>
+            </div>
+            <div class="project-section">
+              <h4 class="project-section-label">Lessons Learned</h4>
+              <p>{{ project.lessons }}</p>
+            </div>
+            <div class="project-tech">
+              @for (tech of project.technologies; track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+<section id="skills" class="section" aria-labelledby="skills-heading">
+  <div class="container">
+    <p class="section-label">Skills</p>
+    <h2 id="skills-heading" class="section-title">Technical Expertise</h2>
+    <p class="section-subtitle">
+      A focused skill set built over 9+ years of production frontend engineering,
+      technical leadership, and cloud delivery.
+    </p>
+
+    <div class="skills-grid">
+      @for (group of data.skillGroups; track group.category) {
+        <div class="skill-card">
+          <h3 class="skill-category">{{ group.category }}</h3>
+          <ul class="skill-list" [attr.aria-label]="group.category + ' skills'">
+            @for (skill of group.skills; track skill) {
+              <li class="skill-tag">{{ skill }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>
